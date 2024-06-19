@@ -1,0 +1,31 @@
+{
+  "name": "commitcheck",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "prepare": "husky install",
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "commitizen": "^4.3.0",
+    "current-git-branch": "^1.1.0",
+    "husky": "^9.0.11"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "node scripts/prepend-branch-name.js $HUSKY_GIT_PARAMS"
+    }
+  }
+}
